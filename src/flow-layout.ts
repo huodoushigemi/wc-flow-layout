@@ -4,24 +4,22 @@ import { minii, queueMicro } from './utils'
 export default class FlowLayout extends HTMLElement {
   constructor() {
     super()
-    // @ts-ignore
-    Object.keys(FlowLayout.default_props).forEach(e => (this[e] ||= FlowLayout.default_props[e]))
   }
 
   static default_props = Object.freeze({
-    gap: 4,
-    cols: 2
+    cols: 2,
+    gap: 4
   })
 
   get gap() {
-    return +this.getAttribute('gap')
+    return +(this.getAttribute('gap') || FlowLayout.default_props.gap)
   }
   set gap(val) {
     this.setAttribute('gap', val + '')
   }
 
   get cols() {
-    return +this.getAttribute('cols')
+    return +(this.getAttribute('cols') || FlowLayout.default_props.cols)
   }
   set cols(val) {
     this.setAttribute('cols', val + '')
@@ -34,51 +32,51 @@ export default class FlowLayout extends HTMLElement {
     return (this.offsetWidth - gap * (cols - 1) - (pl + pr)) / cols
   }
 
-  #rb!: ResizeObserver
-  #mb!:MutationObserver
-  #mb2!:MutationObserver
+  private _rb: ResizeObserver
+  private _mb: MutationObserver
+  private _mb2: MutationObserver
 
   connectedCallback() {
     // 监听大小变化
-    this.#rb = new ResizeObserver(() => (console.log(1), this.relayout()))
-    this.#rb.observe(this)
+    this._rb = new ResizeObserver(() => this.relayout())
+    this._rb.observe(this)
 
     // 监听元素增删
-    this.#mb = new MutationObserver(ms => {
+    this._mb = new MutationObserver(ms => {
       ms.forEach(m => {
-        m.addedNodes.forEach(e => e instanceof HTMLElement && this.#rb.observe(e))
-        m.removedNodes.forEach(e => e instanceof HTMLElement && this.#rb.unobserve(e))
+        m.addedNodes.forEach(e => e instanceof HTMLElement && this._rb.observe(e))
+        m.removedNodes.forEach(e => e instanceof HTMLElement && this._rb.unobserve(e))
       })
       this.relayout()
     })
-    this.#mb.observe(this, { childList: true, attributes: false })
+    this._mb.observe(this, { childList: true, attributes: false })
     
     // 监听属性变化
-    this.#mb2 = new MutationObserver(() => this.relayout())
-    this.#mb2.observe(this, { childList: false, attributes: true })
+    this._mb2 = new MutationObserver(() => this.relayout())
+    this._mb2.observe(this, { childList: false, attributes: true })
   }
 
   disconnectedCallback() {
-    this.#rb.disconnect()
-    this.#mb.disconnect()
-    this.#mb2.disconnect()
+    this._rb.disconnect()
+    this._mb.disconnect()
+    this._mb2.disconnect()
   }
 
-  #layouting = false
+  private _layouting = false
 
   // 重排布局
   relayout() {
-    if (this.#layouting) return
-    this.#layouting = true
+    if (this._layouting) return
+    this._layouting = true
     queueMicro(() => {
-      this.#relayout()
-      this.#layouting = false
+      this._relayout()
+      this._layouting = false
     })
   }
 
   // 重排布局
-  #relayout() {
-    console.log('relayout')
+  private _relayout() {
+    // console.log('relayout')
     if (this.children.length) {
       const { cols, gap } = this
       const { item_w: w } = this
@@ -100,7 +98,8 @@ export default class FlowLayout extends HTMLElement {
     } else {
       this.style.height = '0'
     }
-    this.#mb2.takeRecords()
+    
+    this._mb2.takeRecords()
   }
 }
 
