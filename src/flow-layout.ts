@@ -85,17 +85,18 @@ export default class FlowLayout extends HTMLElement {
 
       const style = window.getComputedStyle(this)
       const pt = parseInt(style.paddingTop), pl = parseInt(style.paddingLeft)
-      const hs = Array(cols).fill(0)
+      const stack = Array(cols).fill(0)
       const els = this.children
+      const hs = Array.prototype.map.call(this.children, (e: HTMLElement) => e.offsetHeight) as number[]
       for (let i = 0; i < els.length; i++) {
         const el = els[i] as HTMLElement
-        const col = minii(hs)
-        el.style.top = pt + hs[col] + 'px'
+        const col = minii(stack)
+        el.style.top = pt + stack[col] + 'px'
         el.style.left = pl + (w + gap) * col + 'px'
         el.style.width = w + 'px'
-        hs[col] += el.offsetHeight + gap
+        stack[col] += hs[i] + gap
       }
-      this.style.height = Math.max(...hs) - gap + 'px'
+      this.style.height = Math.max(...stack) - gap + 'px'
     } else {
       this.style.height = '0'
     }
