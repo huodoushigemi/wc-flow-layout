@@ -1,0 +1,10 @@
+flow-layout {
+  position: relative;
+  display: block;
+  box-sizing: content-box !important;
+}
+      
+flow-layout > * {
+  position: absolute;
+  box-sizing: border-box;
+}

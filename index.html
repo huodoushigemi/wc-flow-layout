@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./example/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <script type="module" src="./example/index.ts"></script>
+
+    <div id="app">
+      <flow-layout id="fl" cols="4" gap="10" style="max-width: 960px; margin: 0 auto;">
+        <div>01</div>
+        <div>02</div>
+        <div>03</div>
+        <div>04</div>
+        <div>05</div>
+        <div>06</div>
+        <div>07</div>
+        <div>08</div>
+        <div>09</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+      </flow-layout>
+
+      <div class="operation">
+        <button id="add">Add</button>
+
+        <p>gap <input type="range" value="4" oninput="fl.gap = this.value" /></p>
+
+        <p>cols <input type="range" value="3" min="1" max="6" oninput="fl.cols = this.value" /></p>
+      </div>
+    </div>
+
+    <script>
+      function h(tag, props, txt) {
+        const el = document.createElement(tag)
+        Object.assign(el, props)
+        el.innerHTML = txt
+        return el
+      }
+
+      const fl = document.getElementById('fl')
+
+      document.getElementById('add').addEventListener('click', () => {
+        fl.appendChild(h('div', null, fl.childElementCount + 1))
+        requestAnimationFrame(() => {
+          window.scrollTo(0, document.body.offsetHeight)
+        })
+      })
+    </script>
+  </body>
+
+  <style>
+    flow-layout > * {
+      padding: 12px;
+      border-radius: 6px;
+      background-color: #80808020;
+      font-size: 2em;
+    }
+
+    flow-layout > *:hover {
+      background-color: #80808040;
+    }
+
+    flow-layout > *:nth-child(3n+1) {
+      height: 100px;
+    }
+
+    flow-layout > *:nth-child(3n+2) {
+      height: 200px;
+    }
+
+    flow-layout > *:nth-child(3n+3) {
+      height: 300px;
+    }
+  </style>
+</html>
