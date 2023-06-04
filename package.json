@@ -1,16 +1,39 @@
 {
   "name": "flow-layout-wc",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.iife.js",
+  "jsdelivr": "dist/index.iife.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huodoushigemi/flow-layout-wc.git"
+  },
+  "author": "灬都是个谜",
+  "license": "MIT",
+  "description": "flow-layout-wc is a flow layout component written using web-component",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:docs": "tsc && vite build --outDir docs --base ./",
+    "build": "rimraf ./dist && rollup -c",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.1",
     "rollup": "^3.23.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.5.3",
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
-  }
+  },
+  "keywords": [
+    "flow",
+    "flow-layout",
+    "flow-list"
+  ]
 }
