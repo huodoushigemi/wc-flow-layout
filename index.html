@@ -11,7 +11,7 @@
     <script type="module" src="./example/index.ts"></script>
 
     <div id="app">
-      <flow-layout id="fl" cols="4" gap="10" style="max-width: 960px; margin: 0 auto;">
+      <flow-layout id="fl" cols="6" gap="10" style="max-width: 960px; margin: 0 auto;">
         <div>01</div>
         <div>02</div>
         <div>03</div>
@@ -25,12 +25,22 @@
         <div>11</div>
         <div>12</div>
         <div>13</div>
+        <!-- <img src="https://images.goodsmile.info/cgm/images/product/20210930/11847/90976/large/5ee488d8a1a91e96c13246dfb14014e8.jpg" />
+        <img src="https://images.goodsmile.info/cgm/images/product/20210930/11846/91054/original/bb530d63bc294af48b0a3fb055b35fa8.jpg" />
+        <img src="https://images.goodsmile.info/cgm/images/product/20210930/11846/90971/large/1e2ad7c1ff8b3514f83c4ab5ae28a881.jpg" />
+        <img src="https://images.goodsmile.info/cgm/images/product/20210930/11847/90977/large/41f3b070e85027b7081c50322ea3a896.jpg" />
+        <img src="https://images.goodsmile.info/cgm/images/product/20210930/11847/90978/large/9f0d32002976ea18117aca4523102eed.jpg" />
+        <img src="https://images.goodsmile.info/cgm/images/product/20210930/11846/90970/large/4ee2c96819937628adc5c9997882a92e.jpg" />
+        <img src="https://images.goodsmile.info/cgm/images/product/20210930/11847/90979/large/a20a70a54a104f892a8d112442ad5d74.jpg" />
+        <img src="https://images.goodsmile.info/cgm/images/product/20210930/11847/90980/large/3dc4eac734dcf20d81cfedc58e9d9bd0.jpg" />
+        <img src="https://images.goodsmile.info/cgm/images/product/20190823/8720/63052/large/7a1c008301819ad414d29603432443ed.jpg" />
+        <img src="https://images.goodsmile.info/cgm/images/product/20190823/8720/63047/large/1b27aaad6374472735924060a770e2c3.jpg" /> -->
       </flow-layout>
 
       <div class="operation">
         <h2>Props</h2>
         
-        <p>gap <input type="range" value="4" oninput="fl.gap = this.value" /></p>
+        <p>gap <input type="range" value="10" oninput="fl.gap = this.value" /></p>
         
         <p>cols <input type="range" value="3" min="1" max="6" oninput="fl.cols = this.value" /></p>
 
@@ -72,6 +82,12 @@
       border-radius: 6px;
       background-color: #80808020;
       font-size: 2em;
+    }
+
+    img {
+      padding: 0 !important;
+      object-fit: cover;
+      height: auto !important;
     }
 
     flow-layout > *:hover {
