@@ -28,11 +28,15 @@
       </flow-layout>
 
       <div class="operation">
-        <button id="add">Add</button>
-
+        <h2>Props</h2>
+        
         <p>gap <input type="range" value="4" oninput="fl.gap = this.value" /></p>
-
+        
         <p>cols <input type="range" value="3" min="1" max="6" oninput="fl.cols = this.value" /></p>
+
+        <p><button id="add">Add</button></p>
+
+        <p><button id="add100">Add 100 items</button></p>
       </div>
     </div>
 
@@ -48,6 +52,13 @@
 
       document.getElementById('add').addEventListener('click', () => {
         fl.appendChild(h('div', null, fl.childElementCount + 1))
+        requestAnimationFrame(() => {
+          window.scrollTo(0, document.body.offsetHeight)
+        })
+      })
+
+      document.getElementById('add100').addEventListener('click', () => {
+        Array(100).fill(0).forEach(() => fl.appendChild(h('div', null, fl.childElementCount + 1)))
         requestAnimationFrame(() => {
           window.scrollTo(0, document.body.offsetHeight)
         })
