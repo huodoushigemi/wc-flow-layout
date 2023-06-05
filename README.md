@@ -2,7 +2,7 @@
 
 The `flow-layout-wc` is a high performance flow layout component written using `web-component`
 
-It can support running in various frameworks, such as `React` and `Vue`
+It can support running in various frameworks, such as `React` `Vue`
 
 ## 🌈 Demo
 
