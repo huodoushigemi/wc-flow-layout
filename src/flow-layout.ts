@@ -88,7 +88,7 @@ export default class FlowLayout extends HTMLElement implements FlEl {
 
   // 重排布局
   private _relayout() {
-    console.log('relayout')
+    // console.log('relayout')
     const els = this.children
     if (els.length) {
       const { cols, gap } = this
