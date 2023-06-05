@@ -1,8 +1,10 @@
 # Flow Layout Wc
 
-`flow-layout-wc` is a flow layout component written using `web-component`
+high performance flow-layout written using web components
 
-<!-- It can support running in various frameworks, such as React and Vue -->
+`flow-layout-wc` is a high performance flow layout component written using `web-component`
+
+It can support running in various frameworks, such as `React` and `Vue`
 
 ## 🌈 Demo
 
@@ -24,6 +26,8 @@ npm i flow-layout-wc
 
 ## 🦄 Example
 
+### 🐔 Use in VanillaJS
+
 ```js
 import 'flow-layout-wc'
 ```
@@ -37,6 +41,49 @@ import 'flow-layout-wc'
   <div>05</div>
   <div>06</div>
 </flow-layout>
+```
+
+### 🐔 Use in React
+
+**📄 App.tsx**
+
+```tsx
+import 'flow-layout-wc'
+
+export default function MyApp() {
+  return (
+    <flow-layout gap={10} cols={3}>
+      <div>01</div>
+      <div>02</div>
+      <div>03</div>
+      <div>04</div>
+      <div>05</div>
+      <div>06</div>
+    </flow-layout>
+  )
+}
+```
+
+### 🐔 Use in Vue
+
+**📄 main.ts**
+```js
+import 'flow-layout-wc'
+```
+
+**📄 App.vue**
+
+```html
+<template>
+  <flow-layout :gap="10" :cols="3">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+    <div>05</div>
+    <div>06</div>
+  </flow-layout>
+</template>
 ```
 
 ## 📄 Props
