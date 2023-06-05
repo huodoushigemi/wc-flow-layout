@@ -45,7 +45,7 @@ import 'flow-layout-wc'
 
 ### 🐔 Use in React
 
-**📄 App.tsx**
+> **📄 App.tsx**
 
 ```tsx
 import 'flow-layout-wc'
@@ -66,12 +66,12 @@ export default function MyApp() {
 
 ### 🐔 Use in Vue
 
-**📄 main.ts**
+> **📄 main.ts**
 ```js
 import 'flow-layout-wc'
 ```
 
-**📄 App.vue**
+> **📄 App.vue**
 
 ```html
 <template>
