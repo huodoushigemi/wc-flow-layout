@@ -8,6 +8,8 @@ It can support running in various frameworks, such as `React` `Vue`
 
 ## 🌈 Demo
 
+- [codepen — Basic usage](https://codepen.io/huodoushigemi/pen/dyQbmgW?editors=1100)
+- [codepen — Photo wall]((https://codepen.io/huodoushigemi/pen/BaGBxKM?editors=1100))
 - https://huodoushigemi.github.io/flow-layout-wc/
 
 ## ⚙️ Installation
