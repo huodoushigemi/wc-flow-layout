@@ -19,7 +19,7 @@ npm i flow-layout-wc
 - ### scripts
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/flow-layout-wc/dist/index.iife.js" />
+<script src="https://cdn.jsdelivr.net/npm/flow-layout-wc/dist/index.iife.js"></script>
 ```
 
 ## 🦄 Example
