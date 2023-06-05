@@ -1,7 +1,15 @@
 import './style.css'
 import { minii, queueMicro } from './utils'
 
-export default class FlowLayout extends HTMLElement {
+interface FlEl extends HTMLElement {
+  _fl_w: number
+  _fl_h: number
+}
+
+export default class FlowLayout extends HTMLElement implements FlEl {
+  _fl_w: number
+  _fl_h: number
+
   constructor() {
     super()
   }
@@ -38,14 +46,18 @@ export default class FlowLayout extends HTMLElement {
 
   connectedCallback() {
     // 监听大小变化
-    this._rb = new ResizeObserver(() => this.relayout())
+    // @ts-ignore
+    this._rb = new ResizeObserver(es => es.some(({ target: el }) => el._fl_w != el.offsetWidth || el._fl_h != el.offsetHeight) && this.relayout())
     this._rb.observe(this)
+    Array.prototype.forEach.call(this.children, el => this._rb.observe(el))
+
+    this.relayout()
 
     // 监听元素增删
     this._mb = new MutationObserver(ms => {
       ms.forEach(m => {
-        m.addedNodes.forEach(e => e instanceof HTMLElement && this._rb.observe(e))
-        m.removedNodes.forEach(e => e instanceof HTMLElement && this._rb.unobserve(e))
+        m.addedNodes.forEach(el => el instanceof HTMLElement && this._rb.observe(el))
+        m.removedNodes.forEach(el => el instanceof HTMLElement && this._rb.unobserve(el))
       })
       this.relayout()
     })
@@ -76,25 +88,33 @@ export default class FlowLayout extends HTMLElement {
 
   // 重排布局
   private _relayout() {
-    // console.log('relayout')
-    if (this.children.length) {
+    console.log('relayout')
+    const els = this.children
+    if (els.length) {
       const { cols, gap } = this
       const { item_w: w } = this
-
+      
+      // 获取每个 item 的高度
+      Array.prototype.forEach.call(els, el => el.style.width = w + 'px')
+      const hs = Array.prototype.map.call(els, (el: FlEl) => (el._fl_w = el.offsetWidth, el._fl_h = el.offsetHeight)) as number[]
+      
+      // 计算位置
+      const stack = Array(cols).fill(0)
       const style = window.getComputedStyle(this)
       const pt = parseInt(style.paddingTop), pl = parseInt(style.paddingLeft)
-      const stack = Array(cols).fill(0)
-      const els = this.children
-      const hs = Array.prototype.map.call(this.children, (e: HTMLElement) => e.offsetHeight) as number[]
+
       for (let i = 0; i < els.length; i++) {
         const el = els[i] as HTMLElement
         const col = minii(stack)
         el.style.top = pt + stack[col] + 'px'
         el.style.left = pl + (w + gap) * col + 'px'
-        el.style.width = w + 'px'
         stack[col] += hs[i] + gap
       }
+      
+      // 设置容器高度
       this.style.height = Math.max(...stack) - gap + 'px'
+      this._fl_w = this.offsetWidth
+      this._fl_h = this.offsetHeight
     } else {
       this.style.height = '0'
     }
