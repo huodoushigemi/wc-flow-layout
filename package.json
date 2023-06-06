@@ -11,11 +11,11 @@
   "files": ["dist"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/huodoushigemi/flow-layout-wc.git"
+    "url": "https://github.com/huodoushigemi/wc-flow-layout.git"
   },
   "author": "灬都是个谜",
   "license": "MIT",
-  "description": "flow-layout-wc is a flow layout component written using web-component",
+  "description": "wc-flow-layout is a flow layout component written using web-component",
   "scripts": {
     "dev": "vite",
     "build:docs": "tsc && vite build --outDir docs --base ./",
