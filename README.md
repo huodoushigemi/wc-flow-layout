@@ -42,7 +42,7 @@ import 'wc-flow-layout'
   <div>04</div>
   <div>05</div>
   <div>06</div>
-</flow-layout>
+</wc-flow-layout>
 ```
 
 ### 🐔 Use in React
@@ -61,7 +61,7 @@ export default function MyApp() {
       <div>04</div>
       <div>05</div>
       <div>06</div>
-    </flow-layout>
+    </wc-flow-layout>
   )
 }
 ```
@@ -84,7 +84,7 @@ import 'wc-flow-layout'
     <div>04</div>
     <div>05</div>
     <div>06</div>
-  </flow-layout>
+  </wc-flow-layout>
 </template>
 ```
 
