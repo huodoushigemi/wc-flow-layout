@@ -1,6 +1,6 @@
-# Flow Layout WC
+# WC Flow Layout
 
-The `flow-layout-wc` is a high performance flow layout component written using `web-component`
+The `wc-flow-layout` is a high performance flow layout component written using `web-component`
 
 It can support running in various frameworks, such as `React` `Vue`
 
@@ -17,13 +17,13 @@ It can support running in various frameworks, such as `React` `Vue`
 - ### npm
 
 ```shell
-npm i flow-layout-wc
+npm i wc-flow-layout
 ```
 
 - ### scripts
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/flow-layout-wc/dist/index.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/wc-flow-layout/dist/index.iife.js"></script>
 ```
 
 ## 🦄 Example
@@ -31,11 +31,11 @@ npm i flow-layout-wc
 ### 🐔 Use in VanillaJS
 
 ```js
-import 'flow-layout-wc'
+import 'wc-flow-layout'
 ```
 
 ```html
-<flow-layout gap="10" cols="3">
+<wc-flow-layout gap="10" cols="3">
   <div>01</div>
   <div>02</div>
   <div>03</div>
@@ -50,11 +50,11 @@ import 'flow-layout-wc'
 > **📄 App.tsx**
 
 ```tsx
-import 'flow-layout-wc'
+import 'wc-flow-layout'
 
 export default function MyApp() {
   return (
-    <flow-layout gap={10} cols={3}>
+    <wc-flow-layout gap={10} cols={3}>
       <div>01</div>
       <div>02</div>
       <div>03</div>
@@ -70,14 +70,14 @@ export default function MyApp() {
 
 > **📄 main.ts**
 ```js
-import 'flow-layout-wc'
+import 'wc-flow-layout'
 ```
 
 > **📄 App.vue**
 
 ```html
 <template>
-  <flow-layout :gap="10" :cols="3">
+  <wc-flow-layout :gap="10" :cols="3">
     <div>01</div>
     <div>02</div>
     <div>03</div>
