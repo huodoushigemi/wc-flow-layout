@@ -123,4 +123,4 @@ export default class FlowLayout extends HTMLElement implements FlEl {
   }
 }
 
-customElements.define('flow-layout', FlowLayout)
+customElements.define('wc-flow-layout', FlowLayout)
