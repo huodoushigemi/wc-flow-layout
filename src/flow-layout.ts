@@ -1,5 +1,5 @@
 import './style.css'
-import { minii, queueMicro } from './utils'
+import { minii } from './utils'
 
 interface FlEl extends HTMLElement {
   _fl_w: number
@@ -80,7 +80,7 @@ export default class FlowLayout extends HTMLElement implements FlEl {
   relayout() {
     if (this._layouting) return
     this._layouting = true
-    queueMicro(() => {
+    requestAnimationFrame(() => {
       this._relayout()
       this._layouting = false
     })
