@@ -19,8 +19,8 @@ export default defineConfig({
   external: Object.keys(pkg.dependencies ?? []),
   // prettier-ignore
   plugins: [
-    esbuild(),
+    esbuild({ minify: true }),
     postcss(),
-    typescript({ declaration: true, emitDeclarationOnly: true }),
+    typescript({ declaration: true, emitDeclarationOnly: true, outDir: 'dist' }),
   ]
 })
