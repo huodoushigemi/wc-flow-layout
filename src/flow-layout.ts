@@ -1,5 +1,5 @@
 import './style.css'
-import { minii } from './utils'
+import { flow_layout } from './utils'
 
 interface FlEl extends HTMLElement {
   _fl_w: number
@@ -31,13 +31,6 @@ export default class FlowLayout extends HTMLElement implements FlEl {
   }
   set cols(val) {
     this.setAttribute('cols', val + '')
-  }
-
-  get item_w() {
-    const { cols, gap } = this
-    const style = window.getComputedStyle(this)
-    const pl = parseInt(style.paddingLeft), pr = parseInt(style.paddingRight)
-    return (this.offsetWidth - gap * (cols - 1) - (pl + pr)) / cols
   }
 
   private _rb: ResizeObserver
@@ -89,35 +82,27 @@ export default class FlowLayout extends HTMLElement implements FlEl {
   // 重排布局
   private _relayout() {
     // console.log('relayout')
-    const els = this.children
-    if (els.length) {
-      const { cols, gap } = this
-      const { item_w: w } = this
-      
-      // 获取每个 item 的高度
-      Array.prototype.forEach.call(els, el => el.style.width = w + 'px')
-      const hs = Array.prototype.map.call(els, (el: FlEl) => (el._fl_w = el.offsetWidth, el._fl_h = el.offsetHeight)) as number[]
-      
-      // 计算位置
-      const stack = Array(cols).fill(0)
-      const style = window.getComputedStyle(this)
-      const pt = parseInt(style.paddingTop), pl = parseInt(style.paddingLeft)
 
-      for (let i = 0; i < els.length; i++) {
-        const el = els[i] as HTMLElement
-        const col = minii(stack)
-        el.style.top = pt + stack[col] + 'px'
-        el.style.left = pl + (w + gap) * col + 'px'
-        stack[col] += hs[i] + gap
+    flow_layout(
+      this,
+      {
+        getW: el => el.offsetWidth,
+        setW: (el, v) => el.style.width = (v) + 'px',
+        getH: el => (el._fl_w = el.offsetWidth, el._fl_h = el.offsetHeight),
+        setH: (el, v) => el.style.height = (v) + 'px',
+        getPad: el => { const pad = getComputedStyle(el); return [parseInt(pad.paddingTop), parseInt(pad.paddingRight), -parseInt(pad.paddingTop), parseInt(pad.paddingLeft)] },
+        setX: (el, v) => el.style.left = v + 'px',
+        setY: (el, v) => el.style.top = v + 'px',
+        getChildren: el => el.children as any,
+      },
+      {
+        cols: this.cols,
+        gap: this.gap,
       }
-      
-      // 设置容器高度
-      this.style.height = Math.max(...stack) - gap + 'px'
-      this._fl_w = this.offsetWidth
-      this._fl_h = this.offsetHeight
-    } else {
-      this.style.height = '0'
-    }
+    )
+
+    this._fl_w = this.offsetWidth
+    this._fl_h = this.offsetHeight
     
     this._mb2.takeRecords()
   }

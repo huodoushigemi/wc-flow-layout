@@ -12,7 +12,7 @@
     <!-- <script type="module" src="./dist/index.mjs"></script> -->
 
     <div id="app">
-      <wc-flow-layout id="fl" cols="6" gap="10" style="max-width: 960px; margin: 0 auto;">
+      <wc-flow-layout id="fl" cols="5" gap="10" style="max-width: 960px; margin: 0 auto;">
         <div>01</div>
         <div>02</div>
         <div>03</div>
@@ -33,7 +33,7 @@
         
         <p>gap <input type="range" value="10" oninput="fl.gap = this.value" /></p>
         
-        <p>cols <input type="range" value="3" min="1" max="6" oninput="fl.cols = this.value" /></p>
+        <p>cols <input type="range" value="5" min="1" max="6" oninput="fl.cols = this.value" /></p>
 
         <p><button id="add">Add</button></p>
 
@@ -51,15 +51,17 @@
 
       const fl = document.getElementById('fl')
 
-      document.getElementById('add').addEventListener('click', () => {
+      document.getElementById('add').addEventListener('click', async () => {
         fl.appendChild(h('div', null, fl.childElementCount + 1))
+        await Promise.resolve()
         requestAnimationFrame(() => {
           window.scrollTo(0, document.body.offsetHeight)
         })
       })
 
-      document.getElementById('add100').addEventListener('click', () => {
+      document.getElementById('add100').addEventListener('click', async () => {
         Array(100).fill(0).forEach(() => fl.appendChild(h('div', null, fl.childElementCount + 1)))
+        await Promise.resolve()
         requestAnimationFrame(() => {
           window.scrollTo(0, document.body.offsetHeight)
         })
