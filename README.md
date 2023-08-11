@@ -8,10 +8,11 @@ It can support running in various frameworks, such as `React` `Vue`
 
 ## 🌈 Demo
 
+- https://huodoushigemi.github.io/wc-flow-layout/
 - [codepen — Basic usage](https://codepen.io/huodoushigemi/pen/dyQbmgW?editors=1100)
 - [codepen — Photo wall](https://codepen.io/huodoushigemi/pen/BaGBxKM?editors=1100)
 - [Vue SFC Playground](https://play.vuejs.org/#eNqFlE1z0zAQhv+KRj0Uhjr+yAdFmM4A0wMcgAGOvriWYquVJY0kJy6Z/HfWdhLsiLbjg613n5VerVbe4Y9azzYNwwSntjBcO2SZa/RNJnmtlXHoclsEa6G2gcgfVeMuM5mGAwkMDByrtcgdgxFC6RRGpMz1hwzHUYYRKZSwMJhnuGeBpnxzE8Vp2L3HUuJLc19a+NLSl1a+9NaXrn3pnSfFkS/57mPffey7j3338ch9Gk4rCWIajkoNQ+seRfd5kWuNdl1SnZuSS4Lyxqn3g9AGW05dRdAyTnQL4r7L7VNgqSFN55RyWRJ0QBBaK+kCy/8wghJW99KdMpSZwOSUN5ag1YG8y4uH0qhG0gCOVxmCLq6j7kmi88WIdFVQVFzQVwuJ3qD4NdqhivGycrBMFMGMCBKewpMxHicv4fMJvnwJX0zMrI44tHpfZXyFh+sQ1Lme3Vsl4cL0xcsOAZthMpSz06aH14UyXDmnLQnDgkqYgTLBN2YmmQulrs9OG9rAupBLytoZ52sGfIa7ucHSHrw4Wyi55uWZk0LVmgtmvmvHlZw6ygVM/7XXnGnY1VEvKlY8/Ee/t+1g+4dhlpkNy/Ap5qDP2GFXt7++sRa+T8Fa0UYA/UzwJ7NKNJ3HAfsE7QO2R1zv9ktfWOjM3/a2dUza46Y6o301ej7D8P/6/MzW/9mdz+anKu7/Ah2emAE=)
-- https://huodoushigemi.github.io/wc-flow-layout/
+- [SolidJs Playground](https://playground.solidjs.com/anonymous/a3b2df62-ffbf-4a0f-a433-78eca5a97e89)
 
 ## ⚙️ Installation
 
