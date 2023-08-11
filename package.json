@@ -34,6 +34,8 @@
   "keywords": [
     "flow",
     "flow-layout",
-    "flow-list"
+    "flow-list",
+    "waterfall",
+    "wc-waterfall"
   ]
 }
