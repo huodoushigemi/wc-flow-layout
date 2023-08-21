@@ -1,10 +1,10 @@
-wc-flow-layout {
+wc-waterfall {
   position: relative;
   display: block;
   box-sizing: content-box !important;
 }
       
-wc-flow-layout > * {
+wc-waterfall > * {
   position: absolute;
   box-sizing: border-box;
 }

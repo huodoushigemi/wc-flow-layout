@@ -14,7 +14,7 @@
     <!-- <script type="module" src="./dist/index.mjs"></script> -->
 
     <div id="app">
-      <wc-flow-layout id="fl" cols="5" gap="10" style="max-width: 960px; margin: 0 auto;">
+      <wc-waterfall id="fl" cols="5" gap="10" style="max-width: 960px; margin: 0 auto;">
         <div>01</div>
         <div>02</div>
         <div>03</div>
@@ -28,7 +28,7 @@
         <div>11</div>
         <div>12</div>
         <div>13</div>
-      </wc-flow-layout>
+      </wc-waterfall>
 
       <div class="operation">
         <h2>Props</h2>
@@ -72,7 +72,7 @@
   </body>
 
   <style>
-    wc-flow-layout > * {
+    wc-waterfall > * {
       padding: 12px;
       border-radius: 6px;
       background-color: #80808020;
@@ -85,19 +85,19 @@
       height: auto !important;
     }
 
-    wc-flow-layout > *:hover {
+    wc-waterfall > *:hover {
       background-color: #80808040;
     }
 
-    wc-flow-layout > *:nth-child(3n+1) {
+    wc-waterfall > *:nth-child(3n+1) {
       height: 100px;
     }
 
-    wc-flow-layout > *:nth-child(3n+2) {
+    wc-waterfall > *:nth-child(3n+2) {
       height: 200px;
     }
 
-    wc-flow-layout > *:nth-child(3n+3) {
+    wc-waterfall > *:nth-child(3n+3) {
       height: 300px;
     }
   </style>

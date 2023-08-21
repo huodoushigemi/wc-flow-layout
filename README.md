@@ -1,8 +1,8 @@
-# WC Flow Layout
+# wc-waterfall
 
-The `wc-flow-layout` is a high performance flow layout component written using `web-component`
+The `wc-waterfall` is a high performance waterfall component written using `web-component`
 
-It can support running in various frameworks, such as `React` `Vue`
+It can support running in various frameworks, such as `React` `Vue` `SolidJs`
 
 ![image](https://github.com/huodoushigemi/flow-layout-wc/assets/41646242/684221b7-f31b-4e71-b6b5-5380245bda42)
 
@@ -11,21 +11,21 @@ It can support running in various frameworks, such as `React` `Vue`
 - https://huodoushigemi.github.io/wc-flow-layout/
 - [codepen — Basic usage](https://codepen.io/huodoushigemi/pen/dyQbmgW?editors=1100)
 - [codepen — Photo wall](https://codepen.io/huodoushigemi/pen/BaGBxKM?editors=1100)
-- [Vue SFC Playground](https://play.vuejs.org/#eNqFlE1z0zAQhv+KRj0Uhjr+yAdFmM4A0wMcgAGOvriWYquVJY0kJy6Z/HfWdhLsiLbjg613n5VerVbe4Y9azzYNwwSntjBcO2SZa/RNJnmtlXHoclsEa6G2gcgfVeMuM5mGAwkMDByrtcgdgxFC6RRGpMz1hwzHUYYRKZSwMJhnuGeBpnxzE8Vp2L3HUuJLc19a+NLSl1a+9NaXrn3pnSfFkS/57mPffey7j3338ch9Gk4rCWIajkoNQ+seRfd5kWuNdl1SnZuSS4Lyxqn3g9AGW05dRdAyTnQL4r7L7VNgqSFN55RyWRJ0QBBaK+kCy/8wghJW99KdMpSZwOSUN5ag1YG8y4uH0qhG0gCOVxmCLq6j7kmi88WIdFVQVFzQVwuJ3qD4NdqhivGycrBMFMGMCBKewpMxHicv4fMJvnwJX0zMrI44tHpfZXyFh+sQ1Lme3Vsl4cL0xcsOAZthMpSz06aH14UyXDmnLQnDgkqYgTLBN2YmmQulrs9OG9rAupBLytoZ52sGfIa7ucHSHrw4Wyi55uWZk0LVmgtmvmvHlZw6ygVM/7XXnGnY1VEvKlY8/Ee/t+1g+4dhlpkNy/Ap5qDP2GFXt7++sRa+T8Fa0UYA/UzwJ7NKNJ3HAfsE7QO2R1zv9ktfWOjM3/a2dUza46Y6o301ej7D8P/6/MzW/9mdz+anKu7/Ah2emAE=)
-- [SolidJs Playground](https://playground.solidjs.com/anonymous/a3b2df62-ffbf-4a0f-a433-78eca5a97e89)
+- [Vue SFC Playground](https://play.vuejs.org/#eNqFlE1z0zAQhv+KRj0Uhjr+yAdFmM4A0wMcgAGOvrjWxlZrSxpJTgyZ/HfWdhKcCtrxwda7z0qvVivv6HutZ5sWKKOpLYzQjlhwrb7JpGi0Mo5cbotgmzsw67yuLzOZhiOHBA4cNLrGKI4ISacoYWWu32U0jjJKWKFqi4N5RgcSWS42N1Gchv17KiW+NPelhS8tfWnlS6996dqX3nhSHPmS7z723ce++9h3H0/cp+G0jiil4aTMOLTuV91/XuRak12f0uSmFJKRvHXq7Sh0wVZwVzGyjBPdobjvc4cUXGhM0znnQpaMHBBC1kq6wIrfwEgCzSDdKcPBBCbnorWMrA7kXV48lEa1kgd4uMowcnEd9U8SPV6MSVcFRSVq/mIhySsSvyQ7UoEoK4fLRBHOSDDhf3gyxePkOXx+hi+fwxdnZlZHHNt8qDK9ouNFCJpcz+6tknhVhuJlh4DNKBvL2WvTo+sDGa2c05aFYcEl5nOoxcbMJLhQ6ubspLEBrAuF5NDNhFgD0hnt50U7e/ThbKHkWpSPXBSq0aIG81U7oeS5G5xVbT8PmjMtXB31ooLi4R/6ve1G098MWDAbyOgp5rDHwI3h2x9foMPvU7BRvK2RfiL4Hayq297jiH3A1kHbE25w+2koKnblT3vbOZD2uKne6FCNgc8o/rU+PrH1v3bns/mpivs/g3GUPA==)
+- [SolidJs Playground](https://playground.solidjs.com/anonymous/78577fad-c8e2-41fc-8a27-f47849e24615)
 
 ## ⚙️ Installation
 
 - ### npm
 
 ```shell
-npm i wc-flow-layout
+npm i wc-waterfall
 ```
 
 - ### scripts
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/wc-flow-layout/dist/index.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/wc-waterfall/dist/index.iife.js"></script>
 ```
 
 ## 🦄 Example
@@ -33,61 +33,75 @@ npm i wc-flow-layout
 ### 🐔 Use in VanillaJS
 
 ```js
-import 'wc-flow-layout'
+import 'wc-waterfall'
 ```
 
 ```html
-<wc-flow-layout gap="10" cols="3">
+<wc-waterfall gap="10" cols="3">
   <div>01</div>
   <div>02</div>
   <div>03</div>
   <div>04</div>
   <div>05</div>
   <div>06</div>
-</wc-flow-layout>
+</wc-waterfall>
 ```
 
 ### 🐔 Use in React
 
-> **📄 App.tsx**
-
 ```tsx
-import 'wc-flow-layout'
+// App.tsx
+import 'wc-waterfall'
 
 export default function MyApp() {
   return (
-    <wc-flow-layout gap={10} cols={3}>
+    <wc-waterfall gap={10} cols={3}>
       <div>01</div>
       <div>02</div>
       <div>03</div>
       <div>04</div>
       <div>05</div>
       <div>06</div>
-    </wc-flow-layout>
+    </wc-waterfall>
   )
 }
 ```
 
 ### 🐔 Use in Vue
 
-> **📄 main.ts**
 ```js
-import 'wc-flow-layout'
+// main.ts
+import 'wc-waterfall'
 ```
 
-> **📄 App.vue**
-
 ```html
+<!-- App.vue -->
 <template>
-  <wc-flow-layout :gap="10" :cols="3">
+  <wc-waterfall :gap="10" :cols="3">
     <div>01</div>
     <div>02</div>
     <div>03</div>
     <div>04</div>
     <div>05</div>
     <div>06</div>
-  </wc-flow-layout>
+  </wc-waterfall>
 </template>
+```
+
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: { isCustomElement: (tag) => tag.startsWith('wc-') }
+      },
+    })
+  ],
+})
 ```
 
 ## 📄 Props

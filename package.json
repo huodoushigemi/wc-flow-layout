@@ -1,7 +1,7 @@
 {
-  "name": "wc-flow-layout",
+  "name": "wc-waterfall",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.7",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -15,16 +15,17 @@
   },
   "author": "灬都是个谜",
   "license": "MIT",
-  "description": "wc-flow-layout is a flow layout component written using web-component",
+  "description": "wc-waterfall is a flow layout component written using web-component",
   "scripts": {
     "dev": "vite",
     "build:docs": "tsc && vite build --outDir docs --base ./",
-    "build": "rimraf ./dist && rollup -c",
+    "build": "rimraf dist && rollup -c && rimraf dist/types",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.1",
     "rollup": "^3.23.0",
+    "rollup-plugin-dts": "^6.0.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-postcss": "^4.0.2",
     "tslib": "^2.5.3",

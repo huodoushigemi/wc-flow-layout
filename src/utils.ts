@@ -4,10 +4,6 @@ export function minIndex(arr: number[]) {
   return ii
 }
 
-export function queueMicro(cb: () => void) {
-  queueMicrotask ? queueMicrotask(cb) : Promise.resolve().then(cb)
-}
-
 type Props = {
   cols: number
   gap: number
@@ -29,7 +25,7 @@ type Ops<T> = {
   getChildren(el: T): { [index: number]: T, length: number }
 }
 
-export function flow_layout<T>(container: T, { getW, setW, getH, setH, getPad, setX, setY, getChildren }: Ops<T>, { cols, gap }: Props) {
+export function waterfall_layout<T>(container: T, { getW, setW, getH, setH, getPad, setX, setY, getChildren }: Ops<T>, { cols, gap }: Props) {
   const [pt, pr, pb, pl] = getPad(container)
   const els = getChildren(container), len = els.length
 
