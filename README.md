@@ -8,11 +8,14 @@ It can support running in various frameworks, such as `React` `Vue` `SolidJs`
 
 ## 🌈 Demo
 
+[vue-sfc]: https://play.vuejs.org/#eNqFVE1zmzAQ/Ss75JCkDQb81ZQSz7SdHNpD22l75IJBBiUgaSRhk3r837sCm0CUj/HB2rdvdx+r1e6dz0JMtjVxQidSqaRCgyK6FquY0UpwqWEPkmzgABvJKzhH6nnvOt+l7i7RRG6SskQ4ZilnSkPKSwU3Ju5idnkC80QcscBHMPK6clgIDU0qUWImtKANDyGiTNQatm7FM1LexI6BYwf0gyBoyYTlBM0qadBa4MlbwX7f1T4cTJ5oLRE0J6z9TEJEX8oX+H6f0QgfJjylbZFhByBEap83NEp62a0M5Gd0u/KDyDP/Q2hqQzMbmtvQwoaWNvTBhq5t6KMFBb4N2eoDW31gqw9s9cFAfeQNe4lQ5A2mAk2lH0pzHLV8Be9gb8I1XqCimnIWgnFMZupTzPDaYnaWCNGRqkTm1BBqzdFrgMbd0UwXISyCqWhGIaisCxNJllGWh3CkAGw4066i/0gIU1K10JrLjEhXJhmtcXyXR+Y6Se9zyWuWuTgJXIZwdu2b39R/WixkunDTgpbZxZzBewgu8fEVhOaFxjK+jxkBA16iT4f0YPoWfTaiL96iz0dilic6PuP2Wpwrp1sKbpWIyZ3iDDdK27z46MBHEHbtNNjwEo0jdgqthQo9L80YxuMLpVs5YUR7TFSj0cCJUdqjLCPNhNINQXbsmLwo54A6tMKFs6H5ExUprwQtifwpzJCM1WBWvvveYlrW5OqEpwVJ75/B71TTif4liSJyi4uj92mcMaI79+2fH6TBc+/E1VOXyH7F+ZsoXtZGY0f7gqODsge8Vu23tqk4lX/VbaMJzv7xo4zQthstP3ZwY3995dMf5c4ms76Lh/+zWfXS
+
 - https://huodoushigemi.github.io/wc-flow-layout/
 - [codepen — Basic usage](https://codepen.io/huodoushigemi/pen/dyQbmgW?editors=1100)
 - [codepen — Photo wall](https://codepen.io/huodoushigemi/pen/BaGBxKM?editors=1100)
-- [Vue SFC Playground](https://play.vuejs.org/#eNqFlE1z0zAQhv+KRj0Uhjr+yAdFmM4A0wMcgAGOvrjWxlZrSxpJTgyZ/HfWdhKcCtrxwda7z0qvVivv6HutZ5sWKKOpLYzQjlhwrb7JpGi0Mo5cbotgmzsw67yuLzOZhiOHBA4cNLrGKI4ISacoYWWu32U0jjJKWKFqi4N5RgcSWS42N1Gchv17KiW+NPelhS8tfWnlS6996dqX3nhSHPmS7z723ce++9h3H0/cp+G0jiil4aTMOLTuV91/XuRak12f0uSmFJKRvHXq7Sh0wVZwVzGyjBPdobjvc4cUXGhM0znnQpaMHBBC1kq6wIrfwEgCzSDdKcPBBCbnorWMrA7kXV48lEa1kgd4uMowcnEd9U8SPV6MSVcFRSVq/mIhySsSvyQ7UoEoK4fLRBHOSDDhf3gyxePkOXx+hi+fwxdnZlZHHNt8qDK9ouNFCJpcz+6tknhVhuJlh4DNKBvL2WvTo+sDGa2c05aFYcEl5nOoxcbMJLhQ6ubspLEBrAuF5NDNhFgD0hnt50U7e/ThbKHkWpSPXBSq0aIG81U7oeS5G5xVbT8PmjMtXB31ooLi4R/6ve1G098MWDAbyOgp5rDHwI3h2x9foMPvU7BRvK2RfiL4Hayq297jiH3A1kHbE25w+2koKnblT3vbOZD2uKne6FCNgc8o/rU+PrH1v3bns/mpivs/g3GUPA==)
+- [Vue SFC Playground][vue-sfc]
 - [SolidJs Playground](https://playground.solidjs.com/anonymous/78577fad-c8e2-41fc-8a27-f47849e24615)
+- [Animation][vue-sfc]
 
 ## ⚙️ Installation
 
