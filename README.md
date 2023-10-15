@@ -33,7 +33,7 @@ npm i wc-waterfall
 
 ## 🦄 Example
 
-### 🐔 Use in VanillaJS
+### 🚀 Use in VanillaJS
 
 ```js
 import 'wc-waterfall'
@@ -50,7 +50,7 @@ import 'wc-waterfall'
 </wc-waterfall>
 ```
 
-### 🐔 Use in React
+### 🚀 Use in React
 
 ```tsx
 // App.tsx
@@ -70,7 +70,7 @@ export default function MyApp() {
 }
 ```
 
-### 🐔 Use in Vue
+### 🚀 Use in Vue
 
 ```js
 // main.ts
@@ -105,6 +105,11 @@ export default defineConfig({
     })
   ],
 })
+```
+## 🚀 Use in SSR
+```diff
+- import 'wc-waterfall'
++ if (typeof document != 'undefined') import('wc-waterfall')
 ```
 
 ## 📄 Props
