@@ -19,11 +19,14 @@
   "scripts": {
     "dev": "vite",
     "build:docs": "tsc && vite build --outDir docs --base ./",
-    "build": "rimraf dist && rollup -c && rimraf dist/types",
+    "build": "rimraf dist/* && rollup -c && rimraf dist/types",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.1",
+    "cssnano": "^6.0.2",
+    "postcss": "^8.4.32",
+    "postcss-clean": "^1.2.2",
     "rollup": "^3.23.0",
     "rollup-plugin-dts": "^6.0.0",
     "rollup-plugin-esbuild": "^5.0.0",

@@ -1,5 +1,5 @@
-import { Waterfall } from './waterfall'
+import { WaterfallElement } from './waterfall'
 
 export * from './waterfall'
 
-customElements.define('wc-waterfall', Waterfall)
+customElements.define('wc-waterfall', WaterfallElement)

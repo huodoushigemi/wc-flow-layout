@@ -1,8 +1,8 @@
 import { defineConfig } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
 import typescript from '@rollup/plugin-typescript'
+import inline from './plugins/inline.js'
 import { dts } from 'rollup-plugin-dts'
-import postcss from 'rollup-plugin-postcss'
 import pkg from './package.json' assert { type: 'json' }
 
 const formats = {
@@ -19,17 +19,16 @@ export default defineConfig([
       file: `./dist/index.${ext}`,
     })),
     external: Object.keys(pkg.dependencies ?? []),
-    // prettier-ignore
     plugins: [
-      postcss(),
-      esbuild({ minify: true, target: ['chrome67', 'ios13'] }),
+      inline(),
       typescript({ declaration: true, emitDeclarationOnly: true, outDir: 'dist/types' }),
+      esbuild({ minify: true, target: ['chrome67', 'ios13'] }),
     ],
   },
   {
     input: 'dist/types/index.d.ts',
     output: { file: 'dist/index.d.ts' },
-    external: /\.css$/,
+    external: /\.css/,
     plugins: [dts()]
   },
 ])

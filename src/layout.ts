@@ -4,12 +4,12 @@ export function minIndex(arr: number[]) {
   return ii
 }
 
-type Props = {
+export type Props = {
   cols: number
   gap: number
 }
 
-type Ops<T> = {
+type RenderOptions<T> = {
   // w
   getW(el: T): number
   setW(el: T, v: number): void
@@ -22,28 +22,29 @@ type Ops<T> = {
   setX(el: T, v: number): void
   setY(el: T, v: number): void
   // children
-  getChildren(el: T): { [index: number]: T, length: number }
+  getChildren(el: T): { [index: number]: T, readonly length: number }
 }
 
-export function waterfall_layout<T>(container: T, { getW, setW, getH, setH, getPad, setX, setY, getChildren }: Ops<T>, { cols, gap }: Props) {
+export function waterfall_layout<T>(container: T, { getW, setW, getH, setH, getPad, setX, setY, getChildren }: RenderOptions<T>, { cols, gap }: Props) {
   const [pt, pr, pb, pl] = getPad(container)
-  const els = getChildren(container), len = els.length
+  const children = getChildren(container), len = children.length
 
   if (len) {
-    const ew = (getW(container) - gap * (cols - 1) - (pl + pr)) / cols
+    // 设置 item 宽度
+    const w = (getW(container) - gap * (cols - 1) - (pl + pr)) / cols
+    Array.prototype.forEach.call(children, el => setW(el, w))
 
-    // 获取每个 item 的高度
-    Array.prototype.forEach.call(els, el => setW(el, ew))
-    const hs = Array.prototype.map.call(els, el => getH(el)) as number[]
+    // 获取 item 高度
+    const hs = Array.prototype.map.call(children, el => getH(el)) as number[]
 
     // 计算位置
     const stack = Array(cols).fill(pt)
 
     for (let i = 0; i < len; i++) {
-      const el = els[i]
+      const el = children[i]
       const col = minIndex(stack)
       setY(el, stack[col])
-      setX(el, pl + (ew + gap) * col)
+      setX(el, pl + (w + gap) * col)
       stack[col] += hs[i] + gap
     }
 
