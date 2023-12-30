@@ -1,7 +1,7 @@
 {
   "name": "wc-waterfall",
   "private": false,
-  "version": "0.0.7",
+  "version": "0.1.0",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
