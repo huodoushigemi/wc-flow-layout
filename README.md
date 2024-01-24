@@ -70,6 +70,20 @@ export default function MyApp() {
 }
 ```
 
+TypeScript support (JSX/TSX)
+
+```ts
+// shims.d.ts
+declare namespace JSX {
+  interface IntrinsicElements {
+    'wc-waterfall': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
+      gap?: number;
+      cols?: number;
+    }, HTMLElement>;
+  }
+}
+```
+
 ### 🚀 Use in Vue
 
 ```js
