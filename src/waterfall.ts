@@ -27,6 +27,6 @@ export class WaterfallElement extends createWebComponent(default_props) {
 
   /**update layout */
   render() {
-    this._layout.relayout()
+    this.isConnected && this._layout.relayout()
   }
 }
