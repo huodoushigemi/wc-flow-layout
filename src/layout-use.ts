@@ -1,5 +1,5 @@
 import { isEl } from './dom-utils'
-import { Props, waterfall_layout } from './layout'
+import { WaterfallProps, waterfall_layout } from './layout'
 
 const prevh = Symbol(), prevw = Symbol()
 
@@ -68,7 +68,7 @@ export function useLayoutObs(el: HTMLElement, relayout: () => void) {
  * const layout = useWaterfall(div, { cols: 4, gap: 4 })
  * layout.mount()
  */
-export const useWaterfall = (el: HTMLElement, props: Props) => (
+export const useWaterfall = (el: HTMLElement, props: WaterfallProps) => (
   useLayoutObs(el, () => {
     // console.log('relayout')
     waterfall_layout(

@@ -3,13 +3,18 @@ document.head.appendChild(Object.assign(document.createElement('style'), { inner
 
 import { useWaterfall } from './layout-use'
 import { createWebComponent } from './dom-utils'
+import { WaterfallProps } from './layout'
 
 const default_props = () => ({
   cols: 2,
   gap: 4
-})
+} as WaterfallProps)
 
-export class WaterfallElement extends createWebComponent(default_props) {
+const formats = {
+  gap: (v: any) => typeof v == 'string' ? v.includes(' ') ? v.split(' ').map(Number) : Number(v) : v
+}
+
+export class WaterfallElement extends createWebComponent(default_props, formats) {
   constructor() {
     super()
   }
@@ -27,6 +32,6 @@ export class WaterfallElement extends createWebComponent(default_props) {
 
   /**update layout */
   render() {
-    this.isConnected && this._layout.relayout()
+    this._layout?.relayout()
   }
 }

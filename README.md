@@ -76,10 +76,7 @@ TypeScript support (JSX/TSX)
 // shims.d.ts
 declare namespace JSX {
   interface IntrinsicElements {
-    'wc-waterfall': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
-      gap?: number;
-      cols?: number;
-    }, HTMLElement>;
+    'wc-waterfall': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & import('wc-waterfall').WaterfallProps, HTMLElement>;
   }
 }
 ```
@@ -128,10 +125,10 @@ export default defineConfig({
 
 ## 📄 Props
 
-| Name | Type     | Default | Description            |
-| ---- | -------- | ------- | ---------------------- |
-| cols | `number` | 2       | Number of columns      |
-| gap  | `number` | 4       | Interval between cells |
+| Name | Type                         | Default | Description            |
+| ---- | ---------------------------- | ------- | ---------------------- |
+| cols | `number`                     | 2       | Number of columns      |
+| gap  | `number \| [number, number]` | 4       | Interval between cells |
 
 ## ⭐️ Show Your Support
 

@@ -4,9 +4,9 @@ export function minIndex(arr: number[]) {
   return ii
 }
 
-export type Props = {
+export type WaterfallProps = {
   cols: number
-  gap: number
+  gap: number | [number, number]
 }
 
 type RenderOptions<T> = {
@@ -25,13 +25,14 @@ type RenderOptions<T> = {
   getChildren(el: T): { [index: number]: T, readonly length: number }
 }
 
-export function waterfall_layout<T>(container: T, { getW, setW, getH, setH, getPad, setX, setY, getChildren }: RenderOptions<T>, { cols, gap }: Props) {
+export function waterfall_layout<T>(container: T, { getW, setW, getH, setH, getPad, setX, setY, getChildren }: RenderOptions<T>, { cols, gap }: WaterfallProps) {
+  const [gapx, gapy] = Array.isArray(gap) ? gap : [gap, gap]
   const [pt, pr, pb, pl] = getPad(container)
   const children = getChildren(container), len = children.length
 
   if (len) {
     // 设置 item 宽度
-    const w = (getW(container) - gap * (cols - 1) - (pl + pr)) / cols
+    const w = (getW(container) - gapx * (cols - 1) - (pl + pr)) / cols
     Array.prototype.forEach.call(children, el => setW(el, w))
 
     // 获取 item 高度
@@ -44,12 +45,12 @@ export function waterfall_layout<T>(container: T, { getW, setW, getH, setH, getP
       const el = children[i]
       const col = minIndex(stack)
       setY(el, stack[col])
-      setX(el, pl + (w + gap) * col)
-      stack[col] += hs[i] + gap
+      setX(el, pl + (w + gapx) * col)
+      stack[col] += hs[i] + gapy
     }
 
     // 设置容器高度
-    setH(container, Math.max(...stack) - gap + pb)
+    setH(container, Math.max(...stack) - gapy + pb)
   } else {
     setH(container, pt + pb)
   }

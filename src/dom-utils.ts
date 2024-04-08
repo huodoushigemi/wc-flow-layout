@@ -5,7 +5,7 @@ abstract class WebComponentBase<P> {
   abstract render(): void
 }
 
-export const createWebComponent = <P extends Record<string, any>>(attrs: () => P) => {
+export const createWebComponent = <P extends Record<string, any>>(attrs: () => P, formats?: Record<string, (v: any) => any>) => {
   const initial = attrs()
   abstract class WebComponent extends HTMLElement {
     $props = attrs()
@@ -16,8 +16,7 @@ export const createWebComponent = <P extends Record<string, any>>(attrs: () => P
         map[k] = {
           get: () => this.$props[k],
           set: (v: any) => {
-            // @ts-ignore
-            this.$props[k] = typeMapping(initial, k, v)
+            this.$props[k] = formats?.[k] ? formats[k](v) : typeMapping(initial, k, v)
             this.render()
           },
         }
@@ -29,10 +28,9 @@ export const createWebComponent = <P extends Record<string, any>>(attrs: () => P
       return Object.keys(initial).filter(k => isBasic(initial[k]))
     }
 
-    attributeChangedCallback(k: string, old: string, val: unknown) {
-      val = typeMapping(initial, k, val)
+    attributeChangedCallback(k: string, old: string, v: unknown) {
       // @ts-ignore
-      if (this.$props[k] !== val) this.$props[k] = val
+      this.$props[k] = formats?.[k] ? formats[k](v) : typeMapping(initial, k, v)
     }
 
     // 子类实现
