@@ -4,7 +4,7 @@ The `wc-waterfall` is a high performance waterfall component written using `web-
 
 It can support running in various frameworks, such as `React` `Vue` `SolidJs`
 
-![image](https://github.com/huodoushigemi/flow-layout-wc/assets/41646242/684221b7-f31b-4e71-b6b5-5380245bda42)
+![image](https://raw.githubusercontent.com/huodoushigemi/wc-flow-layout/main/public/cover.webp)
 
 ## 🌈 Demo
 
