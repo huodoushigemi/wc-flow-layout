@@ -6,7 +6,7 @@ export function minIndex(arr: number[]) {
 
 export type WaterfallProps = {
   cols: number
-  gap: number | [number, number]
+  gap: number | [number, number] | string
 }
 
 type RenderOptions<T> = {
