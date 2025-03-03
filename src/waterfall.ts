@@ -11,7 +11,25 @@ const default_props = () => ({
 } as WaterfallProps)
 
 const formats = {
-  gap: (v: any) => typeof v == 'string' ? v.includes(' ') ? v.split(' ').map(Number) : Number(v) : v
+  gap: (v: any) => {
+    if (typeof v === 'string') {      
+      if (v.includes(',')) {
+        return v.split(',').map(Number);
+      }
+      
+      if (v.includes(' ')) {
+        return v.split(' ').map(Number);
+      }
+      
+      return Number(v);
+    } 
+    else if (Array.isArray(v)) {
+      return v.map(Number);
+    } 
+    else {
+      return v;
+    }
+  }
 }
 
 export class WaterfallElement extends createWebComponent(default_props, formats) {
