@@ -6,7 +6,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
-    <script type="module" crossorigin src="./assets/index-0d43084f.js"></script>
+    <script type="module" crossorigin src="./assets/index-ce6f3104.js"></script>
     <link rel="stylesheet" href="./assets/index-c5229e1f.css">
   </head>
   <body>
@@ -15,7 +15,7 @@
     <!-- <script src="./dist/index.iife.js"></script> -->
 
     <div id="app">
-      <wc-waterfall id="fl" cols="5" gap="10" style="max-width: 960px; margin: 0 auto;">
+      <wc-waterfall id="fl" cols="5" gap="10 10" style="max-width: 960px; margin: 0 auto;">
         <div>01</div>
         <div>02</div>
         <div>03</div>
@@ -34,9 +34,10 @@
       <div class="operation">
         <h2>Props</h2>
         
-        <p>gap <input type="range" value="10" oninput="fl.gap = this.value" /></p>
+        <p>Column Gap <input type="range" id="gapx" value="10" min="0" max="30" oninput="updateGap()" /></p>
+        <p>Row Gap <input type="range" id="gapy" value="10" min="0" max="30" oninput="updateGap()" /></p>
         
-        <p>cols <input type="range" value="5" min="1" max="6" oninput="fl.cols = this.value" /></p>
+        <p>Columns <input type="range" value="5" min="1" max="6" oninput="fl.cols = this.value" /></p>
 
         <p><button id="add">Add</button></p>
 
@@ -53,6 +54,14 @@
       }
 
       const fl = document.getElementById('fl')
+      const gapxInput = document.getElementById('gapx')
+      const gapyInput = document.getElementById('gapy')
+      
+      function updateGap() {
+        const gapx = gapxInput.value
+        const gapy = gapyInput.value
+        fl.gap = [parseInt(gapx), parseInt(gapy)]
+      }
 
       document.getElementById('add').addEventListener('click', async () => {
         fl.appendChild(h('div', null, fl.childElementCount + 1))

@@ -125,10 +125,10 @@ export default defineConfig({
 
 ## 📄 Props
 
-| Name | Type                         | Default | Description            |
-| ---- | ---------------------------- | ------- | ---------------------- |
-| cols | `number`                     | 2       | Number of columns      |
-| gap  | `number \| [number, number]` | 4       | Interval between cells |
+| Name | Type                         | Default | Description                                                                            |
+| ---- | ---------------------------- | ------- | -------------------------------------------------------------------------------------- |
+| cols | `number`                     | 2       | Number of columns                                                                      |
+| gap  | `number \| string \| [number, number] `  | 4       | Interval between cells. Can be a single number(e.g. 10), space-separated values (e.g. "10 20"), or a numeric tuple (e.g., [10, 20]) |
 
 ## ⭐️ Show Your Support
 
